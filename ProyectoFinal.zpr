@@ -15,15 +15,19 @@ tab_width=4
 tab_use_spaces=0
 explorer_path=.
 inherits_from=
-current_source=Sprite.cpp
+current_source=main.cpp
 path_char=\
 [source]
 path=main.cpp
-cursor=3:34
+cursor=19:32
+breakpoint=16
+breakpoint_annotation=
 open=true
 [source]
 path=Sprite.cpp
-cursor=6:8
+cursor=18:2
+breakpoint=17
+breakpoint_annotation=
 open=true
 [header]
 path=BulletPool.h
@@ -42,7 +46,7 @@ path=GameManager.h
 cursor=8:1
 [header]
 path=Sprite.h
-cursor=0:0
+cursor=11:20
 open=true
 [config]
 name=Debug
@@ -116,5 +120,10 @@ libraries=
 strip_executable=2
 console_program=1
 dont_generate_exe=0
+[inspections]
+expr=position
+expr=i
+expr=position[y] + 1
+expr=position[x]
 [custom_tools]
 [end]

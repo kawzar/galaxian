@@ -12,7 +12,7 @@ private:
 	const int sizeY = 3;
 	const int x = 0;
 	const int y = 1;
-	char sprite [3][7];
+	char sprite [4][8];
 	int position[2];
 	int color;
 };
