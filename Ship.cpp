@@ -4,6 +4,8 @@
 #include <windows.h>
 #include "Ship.h"
 
+#ifndef SHIP_H	#define	SHIP_H	
+
 using namespace std;
 using namespace conio;
 
@@ -47,3 +49,4 @@ void Ship::setVelocity(const int vel[2]) {
 void Ship::setSprite(const char toDraw[4][8]) {
 	sprite->setSprite(toDraw);
 }
+#endif
