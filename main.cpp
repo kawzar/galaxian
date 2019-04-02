@@ -31,38 +31,10 @@ int main (int argc, char *argv[]) {
 	int ticks, lastRefresh;
 	ticks = 10;
 	lastRefresh = clock();
-		
-//	Ship* ships[3];
-//	newPosition[0] = 1;
-//	newPosition[1] = 10;
-//	
-//	for (int i = 0; i < 3; i++) {
-//		ships[i] = new Ship();
-//		newPosition[0] = newPosition[0] + 9;
-//		int velocity[2] = {1, 0};
-//		
-//		ships[i]->setColor(7);
-//		ships[i]->setPosition(newPosition);
-//		ships[i]->setSprite(toDraw);
-//		ships[i]->setVelocity(velocity);
-//		ships[i]->draw();
-//	}
-	
+			
 	GameManager * gameManager = new GameManager();
 	gameManager->gameLoop();
 	
-//	while(true){
-//		if(clock() > lastRefresh + ticks) { 
-//			clrscr();
-//			for (int i = 0; i < 3; i++) {
-//				ships[i]->move();
-//				ships[i]->draw();
-//			}
-//			
-//			lastRefresh = clock();
-//			
-//		}
-//	}
 	cout << endl;
 	return 0;
 }
