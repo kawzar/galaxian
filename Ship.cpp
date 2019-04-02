@@ -49,4 +49,8 @@ void Ship::setVelocity(const int vel[2]) {
 void Ship::setSprite(const char toDraw[4][8]) {
 	sprite->setSprite(toDraw);
 }
+
+int* Ship::getVelocity() {
+	return velocity;
+}
 #endif

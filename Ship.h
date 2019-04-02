@@ -7,6 +7,7 @@ public:
 	void move();
 	void setVelocity(const int vel[2]);
 	int* getPosition();
+	int* getVelocity();
 	void setPosition(const int position[2]);
 	void shoot(const int xVel, const int yVel);
 	void draw();
@@ -14,6 +15,5 @@ public:
 	void setColor(const int color);
 private:
 	Sprite* sprite;
-	int velocity[2];
-	
+	int velocity[2];	
 };

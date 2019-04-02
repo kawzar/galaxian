@@ -53,8 +53,15 @@ void GameManager::gameLoop() {
 void GameManager::moveFormation() {
 	for (int i = 0; i < 2; i++) {
 		for (int j = 0; j< 5; j++) {
-			formation[i][j]->move();
-			formation[i][j]->draw();
+			if(formation[0][4]->getVelocity()[0] == 1 && formation[0][4]->getPosition()[0] + 9 >= 119) {
+				int newVelocity [2] = {-1, 0};
+				formation[i][j]->setVelocity(newVelocity);
+			} else if (formation[0][0]->getVelocity()[0] == -1 && formation[0][0]->getPosition()[0]<= 1){ 
+				int newVelocity [2] = {1, 0};
+				formation[i][j]->setVelocity(newVelocity);
+			}
+				formation[i][j]->move();
+				formation[i][j]->draw();
 		}
 	}
 };
