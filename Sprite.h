@@ -7,6 +7,7 @@ public:
 	void setSprite(const char toDraw[4][8]);
 	void setColor(const int color);
 	void setPosition(const int newPosition[2]);
+	int* getPosition();
 	void draw();
 private:
 	const char EMPTY = ' ';

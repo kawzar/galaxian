@@ -4,11 +4,15 @@
 #include <windows.h>
 #include "Sprite.h"
 
+#ifndef	SPRITE_H	#define	SPRITE_H	
 using namespace std;
 using namespace conio;
 
 Sprite::Sprite() {
 	
+}
+
+Sprite::~Sprite() {
 }
 
 void Sprite::draw() {
@@ -34,3 +38,8 @@ void Sprite::setPosition(const int newPosition[2]) {
 	position[x] = newPosition[x];
 	position[y] = newPosition[y];
 }
+
+int* Sprite::getPosition() {
+	return this -> position;
+}
+#endif
