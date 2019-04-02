@@ -12,12 +12,14 @@ int main (int argc, char *argv[]) {
 	strcpy(toDraw[2], " /|/\\|\\");
 	
 	Sprite* board [5];
-
-	for (int i = 0; i < 1; i++) {
+	int newPosition[2] = {1,1};
+	
+	for (int i = 0; i < 5; i++) {
 		board[i] = new Sprite();
-		
+		newPosition[0] = newPosition[0] + board[i]->spacingX;
+
 		board[i]->setColor(14);
-		board[i]->setPosition(i + 9, 1);
+		board[i]->setPosition(newPosition);
 		board[i]->setSprite(toDraw);
 		board[i]->draw();
 	}

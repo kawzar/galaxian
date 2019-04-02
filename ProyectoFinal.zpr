@@ -19,14 +19,12 @@ current_source=main.cpp
 path_char=\
 [source]
 path=main.cpp
-cursor=19:32
-breakpoint=16
-breakpoint_annotation=
+cursor=18:36
 open=true
 [source]
 path=Sprite.cpp
-cursor=18:2
-breakpoint=17
+cursor=32:49
+breakpoint=14
 breakpoint_annotation=
 open=true
 [header]
@@ -46,7 +44,7 @@ path=GameManager.h
 cursor=8:1
 [header]
 path=Sprite.h
-cursor=11:20
+cursor=8:42
 open=true
 [config]
 name=Debug

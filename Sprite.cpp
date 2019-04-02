@@ -30,7 +30,7 @@ void Sprite::setSprite(const char toDraw[4][8]) {
 	}
 }
 
-void Sprite::setPosition(const int x, const int y) {
-	position[0] = x;
-	position[1] = y;
+void Sprite::setPosition(const int newPosition[2]) {
+	position[x] = newPosition[x];
+	position[y] = newPosition[y];
 }

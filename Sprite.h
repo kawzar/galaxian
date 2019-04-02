@@ -1,10 +1,12 @@
 class Sprite{
 public:
+	const int spacingX = 9;
+	const int spacingY = 3;
 	Sprite();
 	~Sprite();
 	void setSprite(const char toDraw[4][8]);
 	void setColor(const int color);
-	void setPosition(const int x, const int y);
+	void setPosition(const int newPosition[2]);
 	void draw();
 private:
 	const char EMPTY = ' ';
