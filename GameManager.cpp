@@ -12,9 +12,13 @@ using namespace std;
 using namespace conio;
 
 GameManager::GameManager() {
-	strcpy(enemySprite[0], "   /\\");
-	strcpy(enemySprite[1], "  (  )");
-	strcpy(enemySprite[2], " /|/\\|\\");
+	strcpy(playerSprite[0], "  /\\");
+	strcpy(playerSprite[1], " (  )");
+	strcpy(playerSprite[2], "/|/\\|\\");
+	
+	strcpy(enemySprite[0], "\\|\\/|/");
+	strcpy(enemySprite[1], " (  )");
+	strcpy(enemySprite[2], "  \\/");
 }
 
 void GameManager::setupFormation(){
@@ -41,7 +45,7 @@ void GameManager::setupPlayer() {
 	player = new Player();
 	int playerPosition[2] = {75,57};
 	
-	player->setSprite(enemySprite);
+	player->setSprite(playerSprite);
 	player->setColor(4);
 	player->setPosition(playerPosition);
 }

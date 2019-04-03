@@ -18,5 +18,6 @@ private:
 	void moveFormation();
 	void setupFormation();
 	void setupPlayer();
+	char playerSprite[3][8];
 	char enemySprite[3][8];
 };
