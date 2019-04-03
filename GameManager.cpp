@@ -17,7 +17,7 @@ GameManager::GameManager() {
 	strcpy(enemySprite[2], " /|/\\|\\");
 }
 
-void GameManager::gameLoop() { 
+void GameManager::setupFormation(){
 	// initialize ships
 	int newPosition[2] = {1,1};
 	
@@ -35,17 +35,51 @@ void GameManager::gameLoop() {
 		newPosition[0] = 1;
 		newPosition[1] = newPosition[1] + 4;
 	}
+}
+
+void GameManager::setupPlayer() {
+	player = new Player();
+	int playerPosition[2] = {75,57};
 	
-	// proper game loop
+	player->setSprite(enemySprite);
+	player->setColor(4);
+	player->setPosition(playerPosition);
+}
+
+void GameManager::gameLoop() { 
+	setupFormation();
+	setupPlayer();
+	
+	// loop time management
 	int ticks, lastRefresh;
 	ticks = 60;
 	lastRefresh = clock();
-	
+		
 	while(true){
 		if(clock() > lastRefresh + ticks) { 
 			clrscr();
 			moveFormation();
-			lastRefresh = clock();			
+			lastRefresh = clock();		
+			
+			if(kbhit())
+			{
+				char input = getch();
+				switch(input)
+				{
+				case 'a':
+					player->moveLeft();				
+					break;
+				case 'd':
+					player->moveRight();
+					
+					break;
+				case 'j':
+					//player->shoot();
+					break;
+				}				
+			}
+			
+			player->draw();
 		}
 	}
 };

@@ -13,7 +13,7 @@ public:
 	void draw();
 	void setSprite(const char toDraw[4][8]);
 	void setColor(const int color);
-private:
+protected:
 	Sprite* sprite;
 	int velocity[2];	
 };
