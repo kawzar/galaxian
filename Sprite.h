@@ -1,3 +1,5 @@
+#ifndef	SPRITE_H	
+#define	SPRITE_H	
 class Sprite{
 public:
 	const int spacingX = 9;
@@ -19,3 +21,4 @@ private:
 	int position[2];
 	int color;
 };
+#endif

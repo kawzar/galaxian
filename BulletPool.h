@@ -1,5 +1,8 @@
+#ifndef BULLETPOOL_H
+#define BULLETPOOL_H
 class BulletPool{
 public:
 	BulletPool();
-	create(const int x, const int y, const int xVel, const int yVel);
+	create(const int position[2], const int velocity[2]);
 };
+#endif

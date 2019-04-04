@@ -4,8 +4,6 @@
 #include <windows.h>
 #include "Ship.h"
 
-#ifndef SHIP_H	#define	SHIP_H	
-
 using namespace std;
 using namespace conio;
 
@@ -53,4 +51,23 @@ void Ship::setSprite(const char toDraw[4][8]) {
 int* Ship::getVelocity() {
 	return velocity;
 }
-#endif
+
+void Ship::handleState(State input)
+{
+	ShipState* state = state_->handleState(*this, input);
+	if (state != NULL)
+	{
+		delete state_;
+		state_ = state;
+	}
+}
+
+void Ship::update()
+{
+	//state_->update(*this);
+}
+
+
+void Ship::setState(ShipState* state){
+	state_ = state;
+}

@@ -1,7 +1,5 @@
 #include "Player.h"
 
-#ifndef PLAYER_H
-#define PLAYER_H
 Player::Player() : Ship() {
 }
 
@@ -17,4 +15,13 @@ void Player::moveRight() {
 	move();
 }
 
-#endif
+//
+//Sh Player::handleState(State state)
+//{
+//	//state_->handleState(*this, state);
+//}
+
+void Player::update()
+{
+	//state_->update(*this);
+}
