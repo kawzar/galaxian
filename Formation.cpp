@@ -46,9 +46,11 @@ void Formation::handleFormationStates(FormationStates s){
 		for (int j = 0; j< ySize; j++) {
 			if (s == FORMATION_LEFT){
 				formation[i][j]->handleStateAndUpdate(EnemyShipState::FORMATION_MOVING_LEFT);
+				state = FORMATION_LEFT;
 			}
 			else if (s == FORMATION_RIGHT){ 
 				formation[i][j]->handleStateAndUpdate(EnemyShipState::FORMATION_MOVING_RIGHT);
+				state = FORMATION_RIGHT;
 			}
 			
 			
