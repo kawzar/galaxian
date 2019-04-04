@@ -6,7 +6,7 @@ class Ship {
 public:
 	Ship();
 	~Ship();
-	void move();
+	virtual void move();
 	void setVelocity(const int vel[2]);
 	int* getPosition();
 	int* getVelocity();

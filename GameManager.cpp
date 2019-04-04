@@ -69,11 +69,12 @@ void GameManager::gameLoop() {
 				switch(input)
 				{
 				case 'a':
-					player->moveLeft();				
+					player->changeState(PlayerStates::MOVE_LEFT);	
+					player->move();
 					break;
 				case 'd':
-					player->moveRight();
-					
+					player->changeState(PlayerStates::MOVE_RIGHT);
+					player->move();
 					break;
 				case 'j':
 					//player->shoot();
