@@ -11,3 +11,26 @@ EnemyShip::EnemyShip(){
 	setSprite(toDraw);
 	setColor(10);
 }
+
+void EnemyShip::handleStateAndUpdate(EnemyShipState s){
+	if (s != state){
+		state = s;
+	}
+	
+	int velocity[2] = {0,0};
+	
+	switch(state) {
+	case FORMATION_MOVING_LEFT:
+		velocity[0] = -1;
+		setVelocity(velocity);
+		break;
+	case FORMATION_MOVING_RIGHT:
+		velocity[0] = 1;
+		setVelocity(velocity);
+		break;
+	case ATTACKING_ALONE:
+		break;
+	case ATTACKING_GROUP:
+		break;
+	}
+}

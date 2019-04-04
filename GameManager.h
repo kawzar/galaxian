@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "Formation.h"
 #ifndef GAMEMANAGER_H	
 #define	GAMEMANAGER_H	
 
@@ -10,15 +11,13 @@ public:
 	void gameLoop();
 	
 private:
-	Ship* formation [2][5];
+	Formation* formation;
 	Player* player;
 	const int yMax = 119;
 	const int xMax = 59;
 	const int xMin = 1;
 	const int yMin = 1;
 	
-	void moveFormation();
-	void setupFormation();
 	void setupPlayer();
 };
 #endif
