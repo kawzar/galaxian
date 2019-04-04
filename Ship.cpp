@@ -2,6 +2,7 @@
 #include <conio2.h>
 #include <constream>
 #include <windows.h>
+#include <cstring>
 #include "Ship.h"
 
 using namespace std;

@@ -5,18 +5,12 @@
 #include <time.h>
 #include <constream>
 #include <conio.h>
+#include "EnemyShip.h"
 
 using namespace std;
 using namespace conio;
 
 GameManager::GameManager() {
-	strcpy(playerSprite[0], "  /\\");
-	strcpy(playerSprite[1], " (  )");
-	strcpy(playerSprite[2], "/|/\\|\\");
-	
-	strcpy(enemySprite[0], "\\|\\/|/");
-	strcpy(enemySprite[1], " (  )");
-	strcpy(enemySprite[2], "  \\/");
 }
 
 void GameManager::setupFormation(){
@@ -25,13 +19,13 @@ void GameManager::setupFormation(){
 	
 	for (int i = 0; i < 2; i++) {		
 		for (int j = 0; j < 5; j++) {
-			formation[i][j] = new Ship();
+			formation[i][j] = new EnemyShip();
 			int velocity[2] = {1, 0};
 			newPosition[0] = newPosition[0] + 9;
 			
-			formation[i][j]->setColor(7);
+			//formation[i][j]->setColor(7);
 			formation[i][j]->setPosition(newPosition);
-			formation[i][j]->setSprite(enemySprite);
+			//formation[i][j]->setSprite(enemySprite);
 			formation[i][j]->setVelocity(velocity);
 		}
 		newPosition[0] = 1;
@@ -43,8 +37,8 @@ void GameManager::setupPlayer() {
 	player = new Player();
 	int playerPosition[2] = {75,57};
 	
-	player->setSprite(playerSprite);
-	player->setColor(4);
+	//player->setSprite(playerSprite);
+	//player->setColor(4);
 	player->setPosition(playerPosition);
 }
 

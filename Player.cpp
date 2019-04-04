@@ -1,5 +1,15 @@
 #include "Player.h"
+#include <cstring>
+using namespace std;
+
 Player::Player() : Ship() {
+	char toDraw [3][8];
+	strcpy(toDraw[0], "  /\\");
+	strcpy(toDraw[1], " (  )");
+	strcpy(toDraw[2], "/|/\\|\\");	
+	setSprite(toDraw);
+	
+	setColor(4);
 }
 
 void Player::moveLeft() {
