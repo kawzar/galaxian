@@ -3,6 +3,7 @@
 #include <constream>
 #include <windows.h>
 #include "Ship.h"
+#include "ShipState.h"
 
 using namespace std;
 using namespace conio;

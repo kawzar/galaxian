@@ -1,6 +1,5 @@
 #include "Sprite.h"
 #include "State.h"
-#include "ShipState.h"
 
 #ifndef SHIP_H	
 #define	SHIP_H	
