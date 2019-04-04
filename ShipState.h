@@ -9,7 +9,7 @@ class ShipState
 {
 public:
 	virtual ~ShipState(){}
-	virtual ShipState* handleState(Ship& ship, State state);
-	virtual void update(Ship& ship);
+	virtual ShipState* handleState(Ship& ship, State state) = 0;
+	virtual void update(Ship& ship) = 0;
 };
 #endif

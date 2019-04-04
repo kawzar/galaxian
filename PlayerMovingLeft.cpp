@@ -10,9 +10,5 @@ ShipState* PlayerMovingLeft::handleState(Ship& ship, State state) {
 }
 	
 void PlayerMovingLeft::update(Ship& ship) {
-	//	chargeTime_++;
-	//	if (chargeTime_ > MAX_CHARGE)
-	//	{
-	//		heroine.superBomb();
-	//	}
+	
 }

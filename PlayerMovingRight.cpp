@@ -9,6 +9,7 @@ ShipState* PlayerMovingRight::handleState(Ship& ship, State state) {
 }
 
 void PlayerMovingRight::update(Ship& ship) {
+	
 //			chargeTime_++;
 //			if (chargeTime_ > MAX_CHARGE)
 //			{

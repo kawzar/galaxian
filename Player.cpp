@@ -15,10 +15,10 @@ void Player::moveRight() {
 	move();
 }
 
-//
-//Sh Player::handleState(State state)
+
+//void Ship::handleState(State state)
 //{
-//	//state_->handleState(*this, state);
+//	if (state
 //}
 
 void Player::update()
