@@ -23,9 +23,7 @@ void GameManager::setupFormation(){
 			int velocity[2] = {1, 0};
 			newPosition[0] = newPosition[0] + 9;
 			
-			//formation[i][j]->setColor(7);
 			formation[i][j]->setPosition(newPosition);
-			//formation[i][j]->setSprite(enemySprite);
 			formation[i][j]->setVelocity(velocity);
 		}
 		newPosition[0] = 1;
@@ -37,8 +35,6 @@ void GameManager::setupPlayer() {
 	player = new Player();
 	int playerPosition[2] = {75,57};
 	
-	//player->setSprite(playerSprite);
-	//player->setColor(4);
 	player->setPosition(playerPosition);
 }
 

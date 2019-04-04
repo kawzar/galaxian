@@ -21,17 +21,6 @@ int main (int argc, char *argv[]) {
 	
 	SetConsoleWindowInfo(hConsole, TRUE, &windowSize);
 		
-	char toDraw[3][8];
-	strcpy(toDraw[0], "   /\\");
-	strcpy(toDraw[1], "  (  )");
-	strcpy(toDraw[2], " /|/\\|\\");
-	
-	int newPosition[2] = {1,1};
-	
-	int ticks, lastRefresh;
-	ticks = 10;
-	lastRefresh = clock();
-			
 	GameManager * gameManager = new GameManager();
 	gameManager->gameLoop();
 	
