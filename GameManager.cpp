@@ -6,8 +6,6 @@
 #include <constream>
 #include <conio.h>
 
-#ifndef GAMEMANAGER_H	#define	GAMEMANAGER_H	
-
 using namespace std;
 using namespace conio;
 
@@ -104,4 +102,3 @@ void GameManager::moveFormation() {
 	}
 };
 
-#endif

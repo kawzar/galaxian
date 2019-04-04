@@ -1,7 +1,4 @@
 #include "Player.h"
-
-#ifndef PLAYER_H
-#define PLAYER_H
 Player::Player() : Ship() {
 }
 
@@ -17,4 +14,3 @@ void Player::moveRight() {
 	move();
 }
 
-#endif

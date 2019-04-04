@@ -4,7 +4,6 @@
 #include <windows.h>
 #include "Sprite.h"
 
-#ifndef	SPRITE_H	#define	SPRITE_H	
 using namespace std;
 using namespace conio;
 
@@ -42,4 +41,3 @@ void Sprite::setPosition(const int newPosition[2]) {
 int* Sprite::getPosition() {
 	return this -> position;
 }
-#endif

@@ -1,4 +1,6 @@
 #include "Sprite.h"
+#ifndef SHIP_H	
+#define	SHIP_H	
 
 class Ship {
 public:
@@ -17,3 +19,4 @@ protected:
 	Sprite* sprite;
 	int velocity[2];	
 };
+#endif
