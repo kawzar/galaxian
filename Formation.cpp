@@ -6,9 +6,15 @@ Formation::Formation(){
 	int newPosition[2] = {1,1};
 	leftLimit = 5;
 	
-	for (int i = 0; i < xSize; i++) {		
-		for (int j = 0; j < ySize; j++) {
-			formation[i][j] = new EnemyShip();
+	
+	for (int i = 0; i < ySize; i++) {		
+		for (int j = 0; j < xSize; j++) {
+			if (i == 0){
+				formation[i][j] = new MediumEnemyShip();
+			} else {
+				formation[i][j] = new EnemyShip();
+			}
+			
 			int velocity[2] = {1, 0};
 			newPosition[0] = newPosition[0] + 9;
 			rightLimit = newPosition[0] + 9;
@@ -48,8 +54,8 @@ void Formation::handleStateAndUpdate(){
 }
 
 void Formation::handleFormationStates(FormationStates s){
-	for (int i = 0; i < xSize; i++) {
-		for (int j = 0; j< ySize; j++) {
+	for (int i = 0; i < ySize; i++) {
+		for (int j = 0; j< xSize; j++) {
 			if (s == FORMATION_LEFT){
 				formation[i][j]->handleStateAndUpdate(EnemyShipState::FORMATION_MOVING_LEFT);
 				state = FORMATION_LEFT;

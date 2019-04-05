@@ -1,4 +1,4 @@
-#include "EnemyShip.h"
+#include "StrongEnemyShip.h"
 
 #ifndef FORMATION_H
 #define FORMATION_H
@@ -12,10 +12,10 @@ public:
 	Formation();
 	void handleStateAndUpdate();
 protected:
-	static const int xSize = 2;
-	static const int ySize = 5;
+	static const int xSize = 5;
+	static const int ySize = 4;
 	FormationStates state;
-	EnemyShip* formation [xSize][ySize];
+	EnemyShip* formation [ySize][xSize];
 	int leftLimit, rightLimit;
 	
 	void handleFormationStates(FormationStates s);

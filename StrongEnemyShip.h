@@ -5,7 +5,11 @@
 
 class StrongEnemyShip : public EnemyShip {
 public:
+	StrongEnemyShip(MediumEnemyShip* left, MediumEnemyShip* right, const int yPosition);
+	void attack();
 private:
 	MediumEnemyShip* left;
 	MediumEnemyShip* right;
+	int yPosition;
 };
+#endif

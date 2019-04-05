@@ -16,6 +16,7 @@ public:
 	void handleStateAndUpdate(EnemyShipState s);
 	bool isAlive();
 	bool isInFormation();
+	virtual void attack();
 protected:
 	EnemyShipState state;
 	bool isAlive_, isInFormation_;

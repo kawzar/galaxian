@@ -42,3 +42,8 @@ bool EnemyShip::isAlive(){
 bool EnemyShip::isInFormation(){
 	return isInFormation_;
 }
+
+
+void EnemyShip::attack() { 
+	
+}
