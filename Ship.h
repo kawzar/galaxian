@@ -13,12 +13,13 @@ public:
 	void setPosition(const int position[2]);
 	void shoot(const int xVel, const int yVel);
 	void draw();
-	
+	bool isAlive();
 protected:
 	Sprite* sprite;
 	int velocity[2];	
 	
 	void setSprite(const char toDraw[4][8]);
 	void setColor(const int color);
+	bool isAlive_;
 };
 #endif

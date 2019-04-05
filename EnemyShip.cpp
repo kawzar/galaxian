@@ -12,6 +12,10 @@ EnemyShip::EnemyShip(){
 	setColor(10);
 }
 
+EnemyShip::~EnemyShip(){
+	delete sprite;
+}
+
 void EnemyShip::handleStateAndUpdate(EnemyShipState s){
 	if (s != state){
 		state = s;
@@ -33,10 +37,6 @@ void EnemyShip::handleStateAndUpdate(EnemyShipState s){
 	case ATTACKING_GROUP:
 		break;
 	}
-}
-
-bool EnemyShip::isAlive(){
-	return isAlive_;
 }
 
 bool EnemyShip::isInFormation(){

@@ -13,13 +13,13 @@ enum EnemyShipState{
 class EnemyShip : public Ship {
 public:
 	EnemyShip();
+	virtual ~EnemyShip();
 	void handleStateAndUpdate(EnemyShipState s);
-	bool isAlive();
 	bool isInFormation();
 	virtual void attack();
 	void setAlive(const bool alive);
 protected:
 	EnemyShipState state;
-	bool isAlive_, isInFormation_;
+	bool isInFormation_;
 };
 #endif

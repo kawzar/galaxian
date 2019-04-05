@@ -10,18 +10,21 @@ using namespace conio;
 
 Ship::Ship() {
 	this->sprite = new Sprite();
+	isAlive_ = true;
 }
 Ship::~Ship() {
 	delete sprite;
 };
 
 void Ship::move() {
-	int newPosition [2];
-	int* currentPosition = sprite->getPosition();
-	newPosition[0] = currentPosition[0] + velocity[0];
-	newPosition[1] = currentPosition[1] + velocity[1];
-	this->setPosition(newPosition);
-	delete currentPosition;
+	if (isAlive_){
+		int newPosition [2];
+		int* currentPosition = sprite->getPosition();
+		newPosition[0] = currentPosition[0] + velocity[0];
+		newPosition[1] = currentPosition[1] + velocity[1];
+		this->setPosition(newPosition);
+		delete currentPosition;
+	}
 };
 
 void Ship::setPosition(const int newPosition[2]){
@@ -37,7 +40,9 @@ void Ship::setColor(const int color) {
 }
 
 void Ship::draw() {
-	sprite->draw();
+	if (isAlive_){
+		sprite->draw();
+	}
 }
 
 void Ship::setVelocity(const int vel[2]) {
@@ -51,4 +56,8 @@ void Ship::setSprite(const char toDraw[4][8]) {
 
 int* Ship::getVelocity() {
 	return velocity;
+}
+
+bool Ship::isAlive(){
+	return isAlive_;
 }

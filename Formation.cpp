@@ -43,6 +43,10 @@ Formation::Formation(){
 	newPosition[1] = 1;
 	formation[0][3]->setPosition(newPosition);
 	formation[0][3]->setVelocity(velocity);
+	
+	formation[0][0]->setAlive(false);
+	formation[0][2]->setAlive(false);
+	formation[0][4]->setAlive(false);
 }
 
 void Formation::handleStateAndUpdate(){	
