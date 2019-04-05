@@ -47,3 +47,7 @@ bool EnemyShip::isInFormation(){
 void EnemyShip::attack() { 
 	
 }
+
+void EnemyShip::setAlive(const bool alive) { 
+	isAlive_ = alive;
+}

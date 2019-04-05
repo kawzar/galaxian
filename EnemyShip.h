@@ -17,6 +17,7 @@ public:
 	bool isAlive();
 	bool isInFormation();
 	virtual void attack();
+	void setAlive(const bool alive);
 protected:
 	EnemyShipState state;
 	bool isAlive_, isInFormation_;

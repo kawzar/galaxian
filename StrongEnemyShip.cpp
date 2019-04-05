@@ -1,9 +1,10 @@
 #include "StrongEnemyShip.h"
 
-StrongEnemyShip::StrongEnemyShip(MediumEnemyShip* l, MediumEnemyShip* r, const int yPos){
+StrongEnemyShip::StrongEnemyShip(MediumEnemyShip* l, MediumEnemyShip* r, const int yPos) : EnemyShip(){
 	left = l;
 	right = r;
 	yPosition = yPos;
+	setColor(14);
 }
 
 void StrongEnemyShip::attack() {
