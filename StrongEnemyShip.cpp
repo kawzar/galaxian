@@ -9,7 +9,7 @@ StrongEnemyShip::StrongEnemyShip(MediumEnemyShip* l, MediumEnemyShip* r, const i
 
 void StrongEnemyShip::attack() {
 	int* newPosition;
-	int newVelocity[2] = {1, 0};
+	int newVelocity[2] = {0, 1};
 	
 	if (left->isAlive() && left ->isInFormation()) { 
 		newPosition = left->getPosition();
@@ -23,9 +23,6 @@ void StrongEnemyShip::attack() {
 		right->attack();
 	}
 	
-	newPosition = getPosition();
-	newPosition[1] = yPosition;
-	setPosition(newPosition);
-	setVelocity(newVelocity);
 	delete newPosition;
+	EnemyShip::attack();
 }

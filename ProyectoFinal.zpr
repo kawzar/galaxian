@@ -15,7 +15,7 @@ tab_width=4
 tab_use_spaces=0
 explorer_path=.
 inherits_from=
-current_source=Ship.cpp
+current_source=Formation.cpp
 path_char=\
 [source]
 path=main.cpp
@@ -31,7 +31,7 @@ cursor=59:0
 open=true
 [source]
 path=GameManager.cpp
-cursor=0:1
+cursor=51:38
 open=true
 [source]
 path=Player.cpp
@@ -39,11 +39,11 @@ cursor=0:0
 open=true
 [source]
 path=Formation.cpp
-cursor=0:0
+cursor=29:103
 open=true
 [source]
 path=EnemyShip.cpp
-cursor=0:0
+cursor=38:20
 open=true
 [source]
 path=MediumEnemyShip.cpp
@@ -51,7 +51,7 @@ cursor=0:0
 open=true
 [source]
 path=StrongEnemyShip.cpp
-cursor=0:0
+cursor=7:1
 open=true
 [header]
 path=BulletPool.h
@@ -78,11 +78,11 @@ cursor=0:0
 open=true
 [header]
 path=Formation.h
-cursor=0:0
+cursor=19:27
 open=true
 [header]
 path=EnemyShip.h
-cursor=0:0
+cursor=24:15
 open=true
 [header]
 path=MediumEnemyShip.h
@@ -90,7 +90,7 @@ cursor=0:0
 open=true
 [header]
 path=StrongEnemyShip.h
-cursor=0:0
+cursor=11:24
 open=true
 [config]
 name=Debug

@@ -21,5 +21,7 @@ public:
 protected:
 	EnemyShipState state;
 	bool isInFormation_;
+	
+	int yPosition;
 };
 #endif

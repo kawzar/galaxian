@@ -10,6 +10,7 @@ EnemyShip::EnemyShip(){
 	
 	setSprite(toDraw);
 	setColor(10);
+	isInFormation_ = true;
 }
 
 EnemyShip::~EnemyShip(){
@@ -17,11 +18,13 @@ EnemyShip::~EnemyShip(){
 }
 
 void EnemyShip::handleStateAndUpdate(EnemyShipState s){
+	EnemyShipState previous;
 	if (s != state){
+		previous = state;
 		state = s;
 	}
 	
-	int velocity[2] = {0,0};
+	int velocity[2] = {1,0};
 	
 	switch(state) {
 	case FORMATION_MOVING_LEFT:
@@ -33,10 +36,16 @@ void EnemyShip::handleStateAndUpdate(EnemyShipState s){
 		setVelocity(velocity);
 		break;
 	case ATTACKING_ALONE:
+		if (isInFormation_){
+			attack();
+		}
 		break;
 	case ATTACKING_GROUP:
 		break;
 	}
+	
+	move();
+	draw();
 }
 
 bool EnemyShip::isInFormation(){
@@ -45,7 +54,15 @@ bool EnemyShip::isInFormation(){
 
 
 void EnemyShip::attack() { 
+	int* newPosition;
+	int newVelocity[2] = {0, 1};
 	
+	newPosition = getPosition();
+	newPosition[1] = yPosition;
+	setPosition(newPosition);
+	setVelocity(newVelocity);
+	delete newPosition;
+	isInFormation_ = false;
 }
 
 void EnemyShip::setAlive(const bool alive) { 

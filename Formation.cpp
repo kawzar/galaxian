@@ -27,7 +27,7 @@ Formation::Formation(){
 	
 	// set left strong ship
 	delete formation[0][1];
-	formation[0][1] = new StrongEnemyShip((MediumEnemyShip*)formation[0][0], (MediumEnemyShip*)formation[0][2], 7);
+	formation[0][1] = new StrongEnemyShip((MediumEnemyShip*)formation[1][0], (MediumEnemyShip*)formation[1][2], 7);
 
 	int velocity[2] = {1, 0};
 	newPosition[0] = 19;
@@ -37,7 +37,7 @@ Formation::Formation(){
 	
 	// set right strong ship
 	delete formation[0][3];
-	formation[0][3] = new StrongEnemyShip((MediumEnemyShip*)formation[0][2], (MediumEnemyShip*)formation[0][4], 7);
+	formation[0][3] = new StrongEnemyShip((MediumEnemyShip*)formation[1][2], (MediumEnemyShip*)formation[1][4], 7);
 
 	newPosition[0] = 19 + 9 + 9;
 	newPosition[1] = 1;
@@ -78,18 +78,22 @@ void Formation::handleStateAndUpdate(){
 void Formation::handleFormationStates(FormationStates s){
 	for (int i = 0; i < ySize; i++) {
 		for (int j = 0; j< xSize; j++) {
-			if (s == FORMATION_LEFT){
-				formation[i][j]->handleStateAndUpdate(EnemyShipState::FORMATION_MOVING_LEFT);
-				state = FORMATION_LEFT;
+			if (formation[i][j]->isInFormation() && formation[i][j]->isAlive()){ 
+				if (s == FORMATION_LEFT){
+					formation[i][j]->handleStateAndUpdate(EnemyShipState::FORMATION_MOVING_LEFT);
+					state = FORMATION_LEFT;
+				}
+				else if (s == FORMATION_RIGHT){ 
+					formation[i][j]->handleStateAndUpdate(EnemyShipState::FORMATION_MOVING_RIGHT);
+					state = FORMATION_RIGHT;
+				} 
+			} else { 
+				formation[i][j]->handleStateAndUpdate(EnemyShipState::ATTACKING_ALONE);
 			}
-			else if (s == FORMATION_RIGHT){ 
-				formation[i][j]->handleStateAndUpdate(EnemyShipState::FORMATION_MOVING_RIGHT);
-				state = FORMATION_RIGHT;
-			}
-			
-			
-			formation[i][j]->move();
-			formation[i][j]->draw();
 		}		
 	}
+}
+
+void Formation::makeSomeShipsAttack(){
+	formation[0][1]->handleStateAndUpdate(EnemyShipState::ATTACKING_ALONE);
 }

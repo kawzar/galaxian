@@ -11,6 +11,7 @@ class Formation {
 public:
 	Formation();
 	void handleStateAndUpdate();
+	void makeSomeShipsAttack();
 protected:
 	static const int xSize = 5;
 	static const int ySize = 4;

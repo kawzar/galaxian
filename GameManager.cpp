@@ -49,7 +49,7 @@ void GameManager::gameLoop() {
 					player->move();
 					break;
 				case 'j':
-					//player->shoot();
+					formation->makeSomeShipsAttack();
 					break;
 				}				
 			}
