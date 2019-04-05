@@ -116,7 +116,6 @@ void Formation::handleFormationStates(FormationStates s){
 	}
 }
 
-void Formation::makeSomeShipsAttack(){
-	strongEnemyShips[0]->handleStateAndUpdate(EnemyShipState::ATTACKING_ALONE);
-	strongEnemyShips[1]->handleStateAndUpdate(EnemyShipState::ATTACKING_ALONE);
+void Formation::makeStrongShipsAttack(const int index) {
+	strongEnemyShips[index]->handleStateAndUpdate(EnemyShipState::ATTACKING_ALONE);
 }

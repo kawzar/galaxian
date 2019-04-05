@@ -24,16 +24,28 @@ void GameManager::setupPlayer() {
 void GameManager::gameLoop() { 
 	setupPlayer();
 	
+	/* initialize random seed: */
+	srand (time(NULL));
+		
 	// loop time management
 	int ticks, lastRefresh;
 	ticks = 60;
+	int strongShipTicks, lastStrongShipAttack;
+	strongShipTicks = 2000;
 	lastRefresh = clock();
+	lastStrongShipAttack = clock();
 		
 	while(true){
 		if(clock() > lastRefresh + ticks) { 
 			clrscr();
 			formation->handleStateAndUpdate();			
 			lastRefresh = clock();		
+			
+			if (clock() > lastStrongShipAttack + strongShipTicks) { 
+				int index = rand() % 2;
+				formation->makeStrongShipsAttack(index);
+				lastStrongShipAttack = clock();
+			}
 			
 			if(kbhit())
 			{
@@ -49,7 +61,6 @@ void GameManager::gameLoop() {
 					player->move();
 					break;
 				case 'j':
-					formation->makeSomeShipsAttack();
 					break;
 				}				
 			}
