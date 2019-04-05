@@ -39,7 +39,7 @@ cursor=0:0
 open=true
 [source]
 path=Formation.cpp
-cursor=29:103
+cursor=101:19
 open=true
 [source]
 path=EnemyShip.cpp
@@ -78,7 +78,7 @@ cursor=0:0
 open=true
 [header]
 path=Formation.h
-cursor=19:27
+cursor=19:33
 open=true
 [header]
 path=EnemyShip.h

@@ -17,6 +17,7 @@ protected:
 	static const int ySize = 4;
 	FormationStates state;
 	EnemyShip* formation [ySize][xSize];
+	EnemyShip* strongEnemyShips [2];
 	int leftLimit, rightLimit;
 	
 	void handleFormationStates(FormationStates s);

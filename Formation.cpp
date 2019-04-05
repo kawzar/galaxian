@@ -47,6 +47,9 @@ Formation::Formation(){
 	formation[0][0]->setAlive(false);
 	formation[0][2]->setAlive(false);
 	formation[0][4]->setAlive(false);
+	
+	strongEnemyShips[0] = formation[0][1];
+	strongEnemyShips[1] = formation[0][3];
 }
 
 void Formation::handleStateAndUpdate(){	
@@ -95,5 +98,6 @@ void Formation::handleFormationStates(FormationStates s){
 }
 
 void Formation::makeSomeShipsAttack(){
-	formation[0][1]->handleStateAndUpdate(EnemyShipState::ATTACKING_ALONE);
+	strongEnemyShips[0]->handleStateAndUpdate(EnemyShipState::ATTACKING_ALONE);
+	strongEnemyShips[1]->handleStateAndUpdate(EnemyShipState::ATTACKING_ALONE);
 }
