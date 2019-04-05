@@ -34,3 +34,11 @@ void EnemyShip::handleStateAndUpdate(EnemyShipState s){
 		break;
 	}
 }
+
+bool EnemyShip::isAlive(){
+	return isAlive_;
+}
+
+bool EnemyShip::isInFormation(){
+	return isInFormation_;
+}

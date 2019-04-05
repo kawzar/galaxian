@@ -4,12 +4,14 @@ Formation::Formation(){
 	// initialize ships
 	state = FormationStates::FORMATION_RIGHT;
 	int newPosition[2] = {1,1};
+	leftLimit = 5;
 	
 	for (int i = 0; i < xSize; i++) {		
 		for (int j = 0; j < ySize; j++) {
 			formation[i][j] = new EnemyShip();
 			int velocity[2] = {1, 0};
 			newPosition[0] = newPosition[0] + 9;
+			rightLimit = newPosition[0] + 9;
 			
 			formation[i][j]->setPosition(newPosition);
 			formation[i][j]->setVelocity(velocity);
@@ -19,17 +21,21 @@ Formation::Formation(){
 	}
 }
 
-void Formation::handleStateAndUpdate(){
+void Formation::handleStateAndUpdate(){	
 	switch (state){
 	case FORMATION_LEFT:
-		if (formation[0][0]->getPosition()[0]<= 1) {
+		leftLimit--;
+		rightLimit--;
+		if (leftLimit <= 1) {
 			handleFormationStates(FormationStates::FORMATION_RIGHT);
 		} else {
 			handleFormationStates(state);
 		}
 		break;
 	case FORMATION_RIGHT:
-		if (formation[0][4]->getPosition()[0] + 9 >= 119) {
+		leftLimit++;
+		rightLimit++;
+		if (rightLimit >= 119) {
 			handleFormationStates(FormationStates::FORMATION_LEFT);
 		} else {
 			handleFormationStates(state);

@@ -14,9 +14,10 @@ class EnemyShip : public Ship {
 public:
 	EnemyShip();
 	void handleStateAndUpdate(EnemyShipState s);
+	bool isAlive();
+	bool isInFormation();
 protected:
 	EnemyShipState state;
-	void updateMovingState(EnemyShipState state);
-	bool isAlive, isLeftMost, isRightMost;
+	bool isAlive_, isInFormation_;
 };
 #endif
