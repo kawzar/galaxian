@@ -119,3 +119,9 @@ void Formation::handleFormationStates(FormationStates s){
 void Formation::makeStrongShipsAttack(const int index) {
 	strongEnemyShips[index]->handleStateAndUpdate(EnemyShipState::ATTACKING_ALONE);
 }
+
+void Formation::makeCommonShipAttack(const int x, const int y) {
+	formation[x][y]->handleStateAndUpdate(EnemyShipState::ATTACKING_ALONE);
+}
+	
+	

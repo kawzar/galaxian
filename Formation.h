@@ -12,6 +12,7 @@ public:
 	Formation();
 	void handleStateAndUpdate();
 	void makeStrongShipsAttack(const int index);
+	void makeCommonShipAttack(const int x, const int y);
 protected:
 	static const int xSize = 5;
 	static const int ySize = 4;

@@ -15,7 +15,7 @@ tab_width=4
 tab_use_spaces=0
 explorer_path=.
 inherits_from=
-current_source=Formation.cpp
+current_source=GameManager.cpp
 path_char=\
 [source]
 path=main.cpp
@@ -31,7 +31,7 @@ cursor=59:0
 open=true
 [source]
 path=GameManager.cpp
-cursor=51:38
+cursor=32:43
 open=true
 [source]
 path=Player.cpp
@@ -39,11 +39,11 @@ cursor=0:0
 open=true
 [source]
 path=Formation.cpp
-cursor=112:44
+cursor=123:72
 open=true
 [source]
 path=EnemyShip.cpp
-cursor=97:57
+cursor=22:1
 open=true
 [source]
 path=MediumEnemyShip.cpp
@@ -79,7 +79,7 @@ cursor=0:0
 open=true
 [header]
 path=Formation.h
-cursor=22:27
+cursor=19:28
 open=true
 [header]
 path=EnemyShip.h
@@ -167,5 +167,9 @@ console_program=1
 dont_generate_exe=0
 [inspections]
 expr=info.dwMaximumWindowSize
+expr=s
+expr=state
+expr=this
+expr=this->state
 [custom_tools]
 [end]

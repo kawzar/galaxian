@@ -31,9 +31,12 @@ void GameManager::gameLoop() {
 	int ticks, lastRefresh;
 	ticks = 60;
 	int strongShipTicks, lastStrongShipAttack;
-	strongShipTicks = 2000;
+	strongShipTicks = 6000;
+	int commonShipTicks, lastCommonShipAttack;
+	commonShipTicks = 2000;
 	lastRefresh = clock();
 	lastStrongShipAttack = clock();
+	lastCommonShipAttack = clock();
 		
 	while(true){
 		if(clock() > lastRefresh + ticks) { 
@@ -45,6 +48,13 @@ void GameManager::gameLoop() {
 				int index = rand() % 2;
 				formation->makeStrongShipsAttack(index);
 				lastStrongShipAttack = clock();
+			}  
+				
+			if (clock() > lastCommonShipAttack + commonShipTicks) { 
+				int x = rand() % 3 + 2;
+				int y = rand() % 4;
+				formation->makeCommonShipAttack(y, x);
+				lastCommonShipAttack = clock();
 			}
 			
 			if(kbhit())
