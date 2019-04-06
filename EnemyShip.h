@@ -27,7 +27,7 @@ protected:
 	int yPosition;
 	int formationPosition[2];
 	int ticks, lastRefresh;
-	const int bulletVelocity[2] = {0,1};
+	const int bulletVelocity[2] = {0,2};
 	BulletPool* bulletPool;
 	
 	void goBackToFormation();

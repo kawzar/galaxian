@@ -1,4 +1,8 @@
 #include "Formation.h"
+#include <stdio.h>
+#include <iostream>
+
+using namespace std;
 
 Formation::Formation(BulletPool* bulletPool){
 	// initialize ships
@@ -125,13 +129,23 @@ void Formation::makeCommonShipAttack(const int x, const int y) {
 }
 	
 void Formation::makeShipsShoot() { 
-	for (int i = 0; i < ySize; i++) {
-		for (int j = 0; j< xSize; j++) {
-			if(formation[i][j]->isAlive() && !formation[i][j]->isInFormation()) {
-				formation[i][j] -> shoot();
-			}
+	for (int i = 0; i < 3; i++) {
+		int xIndex = rand() % xSize;
+		int yIndex = rand() % ySize;
+		
+		if (formation[yIndex][xIndex]->isAlive() && !formation[yIndex][xIndex]->isInFormation()) { 
+			formation[yIndex][xIndex]->shoot();
 		}
 	}
+//	
+//	for (int i = 0; i < ySize && keepIterating; i++) {
+//		for (int j = 0; j< xSize && keepIterating; j++) {
+//			if(formation[i][j]->isAlive() && !formation[i][j]->isInFormation()) {
+//				formation[i][j] -> shoot();
+//				keepIterating = false;				
+//			}
+//		}
+//	}
 }
 
 void Formation::updateBulletPool() {

@@ -11,7 +11,7 @@ public:
 	void update();
 	
 protected:
-	static const int size = 20;
+	static const int size = 10;
 	Bullet* pool [size];
 };
 #endif

@@ -31,34 +31,44 @@ void GameManager::gameLoop() {
 	// loop time management
 	int ticks, lastRefresh;
 	ticks = 60;
+	int strongShipTicks, lastStrongShipAttack;
+	strongShipTicks = 7000;
+	int commonShipTicks, lastCommonShipAttack;
+	commonShipTicks = 2000;
+	
+	int shootTicks, lastShootRefresh;
+	shootTicks = 200;
 	
 	lastRefresh = clock();
+	lastStrongShipAttack = clock();
+	lastCommonShipAttack = clock();
+	lastShootRefresh = clock();
 		
 	while(true){
 		if(clock() > lastRefresh + ticks) { 
 			clrscr();			
-			int strongShipDie = rand() % 50;
-			int commonShipDie = rand() % 100;
-			formation->updateBulletPool();
-			if (strongShipDie % 3 == 0 && strongShipDie > 50) { 
+			
+			
+			if (clock() > lastStrongShipAttack + strongShipTicks) { 
 				int index = rand() % 2;
 				formation->makeStrongShipsAttack(index);
+				lastStrongShipAttack = clock();
 			}  
 				
-			if (commonShipDie % 3 == 0 && commonShipDie > 50) { 
+			if (clock() > lastCommonShipAttack + commonShipTicks) { 
 				int x = rand() % 3 + 2;
 				int y = rand() % 4;
 				formation->makeCommonShipAttack(y, x);
+				lastCommonShipAttack = clock();
 			}
 			
-			int shootDie = rand() % 10;
-			if (shootDie % 3 == 0) {
+			if (clock() > lastShootRefresh + shootTicks) {
 				formation->makeShipsShoot();
+				lastShootRefresh = clock();
 			}
-			
 			
 			formation->handleStateAndUpdate();	
-			
+			formation->updateBulletPool();
 			lastRefresh = clock();
 			
 			if(kbhit())
