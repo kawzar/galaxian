@@ -80,8 +80,6 @@ void Formation::handleStateAndUpdate(){
 		handleFormationStates(state);
 		break;
 	}
-	
-	bulletPool_->update();
 }
 
 void Formation::handleFormationStates(FormationStates s){
@@ -134,4 +132,8 @@ void Formation::makeShipsShoot() {
 			}
 		}
 	}
+}
+
+void Formation::updateBulletPool() {
+	bulletPool_->update();
 }
