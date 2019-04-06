@@ -41,3 +41,7 @@ void Sprite::setPosition(const int newPosition[2]) {
 int* Sprite::getPosition() {
 	return this -> position;
 }
+
+int Sprite::getColor() {
+	return color;
+}

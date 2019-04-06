@@ -5,7 +5,7 @@
 
 class StrongEnemyShip : public EnemyShip {
 public:
-	StrongEnemyShip(MediumEnemyShip* left, MediumEnemyShip* right, const int yPosition);
+	StrongEnemyShip(MediumEnemyShip* left, MediumEnemyShip* right, const int yPosition, BulletPool* bulletPool);
 	void attack();
 private:
 	MediumEnemyShip* left;

@@ -1,17 +1,21 @@
 #include "EnemyShip.h"
 #include <cstring>
+#include <time.h>
 using namespace std;
 
-EnemyShip::EnemyShip(){
+EnemyShip::EnemyShip(BulletPool* pool){
 	char toDraw[3][8];
 	strcpy(toDraw[0], "\\|\\/|/");
 	strcpy(toDraw[1], " (  )");
 	strcpy(toDraw[2], "  \\/");
 	
 	setSprite(toDraw);
-	setColor(10);
+	setColor(9);
 	isInFormation_ = true;
 	state = EnemyShipState::FORMATION_MOVING_RIGHT;
+	
+	ticks = 250;
+	bulletPool = pool;
 }
 
 EnemyShip::~EnemyShip(){
@@ -19,9 +23,7 @@ EnemyShip::~EnemyShip(){
 }
 
 void EnemyShip::handleStateAndUpdate(EnemyShipState s){
-	EnemyShipState previous;
 	if (s != state){
-		previous = state;
 		state = s;
 	}
 	
@@ -42,14 +44,12 @@ void EnemyShip::handleStateAndUpdate(EnemyShipState s){
 		} else { 
 			int* position = getPosition();
 			
-			if (isAlive_ && position[0] >= 117 || position[1] >= 50) {
+			if (isAlive_ && (position[0] >= 117 || position[1] >= 50)) {
 				goBackToFormation();
 			}
 			
 			delete position;
 		}
-		break;
-	case ATTACKING_GROUP:
 		break;
 	}
 	
@@ -96,4 +96,12 @@ void EnemyShip::setFormationPosition(const int position[2]){
 void EnemyShip::changeFormationPosition(const int velocity[2]){
 	formationPosition[0] = formationPosition[0] + velocity[0];
 	formationPosition[1] = formationPosition[1] + velocity[1];
+}
+
+void EnemyShip::shoot() {
+	int* bulletPos = getPosition();
+	bulletPos[1] = bulletPos[1] + 10;
+	bulletPos[0] = bulletPos[0] + 2;
+	
+	bulletPool->create(bulletPos, bulletVelocity, sprite->getColor());
 }

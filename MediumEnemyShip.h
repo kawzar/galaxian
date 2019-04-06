@@ -4,7 +4,7 @@
 #define ENEMYSHIP_H
 class MediumEnemyShip : public EnemyShip {
 public:
-	MediumEnemyShip();
+	MediumEnemyShip(BulletPool* bulletPool);
 	void setVelocity(const int vel[2]);
 	void setPosition(const int pos[2]);
 };

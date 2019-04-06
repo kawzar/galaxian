@@ -10,6 +10,7 @@ public:
 	void setColor(const int color);
 	void setPosition(const int newPosition[2]);
 	int* getPosition();
+	int getColor();
 	void draw();
 private:
 	const char EMPTY = ' ';

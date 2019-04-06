@@ -11,7 +11,7 @@ public:
 	int* getPosition();
 	int* getVelocity();
 	void setPosition(const int position[2]);
-	void shoot(const int xVel, const int yVel);
+	void shoot();
 	void draw();
 	bool isAlive();
 	bool intersects(const int otherPosition[2]);

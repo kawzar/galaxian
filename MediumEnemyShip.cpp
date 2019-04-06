@@ -1,7 +1,7 @@
 #include "MediumEnemyShip.h"
 
-MediumEnemyShip::MediumEnemyShip():EnemyShip(){
-	setColor(5);
+MediumEnemyShip::MediumEnemyShip(BulletPool* bulletPool):EnemyShip(bulletPool){
+	setColor(14);
 }
 
 void MediumEnemyShip::setVelocity(const int vel[2]) {

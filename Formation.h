@@ -1,4 +1,5 @@
 #include "StrongEnemyShip.h"
+#include "BulletPool.h"
 
 #ifndef FORMATION_H
 #define FORMATION_H
@@ -9,10 +10,11 @@ enum FormationStates{
 
 class Formation {
 public:
-	Formation();
+	Formation(BulletPool* bulletPool);
 	void handleStateAndUpdate();
 	void makeStrongShipsAttack(const int index);
 	void makeCommonShipAttack(const int x, const int y);
+	void makeShipsShoot();
 protected:
 	static const int xSize = 5;
 	static const int ySize = 4;
@@ -20,6 +22,7 @@ protected:
 	EnemyShip* formation [ySize][xSize];
 	EnemyShip* strongEnemyShips [2];
 	int leftLimit, rightLimit;
+	BulletPool* bulletPool_;
 	
 	void handleFormationStates(FormationStates s);
 };

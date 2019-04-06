@@ -11,7 +11,8 @@ using namespace std;
 using namespace conio;
 
 GameManager::GameManager() {
-	formation = new Formation();
+	bulletPool = new BulletPool();
+	formation = new Formation(bulletPool);
 }
 
 void GameManager::setupPlayer() {
@@ -31,18 +32,22 @@ void GameManager::gameLoop() {
 	int ticks, lastRefresh;
 	ticks = 60;
 	int strongShipTicks, lastStrongShipAttack;
-	strongShipTicks = 6000;
+	strongShipTicks = 7000;
 	int commonShipTicks, lastCommonShipAttack;
 	commonShipTicks = 2000;
+	
+	int shootTicks, lastShootRefresh;
+	shootTicks = 500;
+	
 	lastRefresh = clock();
 	lastStrongShipAttack = clock();
 	lastCommonShipAttack = clock();
+	lastShootRefresh = clock();
 		
 	while(true){
 		if(clock() > lastRefresh + ticks) { 
-			clrscr();
-			formation->handleStateAndUpdate();			
-			lastRefresh = clock();		
+			clrscr();			
+			
 			
 			if (clock() > lastStrongShipAttack + strongShipTicks) { 
 				int index = rand() % 2;
@@ -56,6 +61,14 @@ void GameManager::gameLoop() {
 				formation->makeCommonShipAttack(y, x);
 				lastCommonShipAttack = clock();
 			}
+			
+			if (clock() > lastShootRefresh + shootTicks) {
+				formation->makeShipsShoot();
+				lastShootRefresh = clock();
+			}
+			
+			formation->handleStateAndUpdate();	
+			lastRefresh = clock();
 			
 			if(kbhit())
 			{

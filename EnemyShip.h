@@ -1,4 +1,5 @@
 #include "Ship.h"
+#include "BulletPool.h"
 
 #ifndef ENEMYSHIP_H
 #define ENEMYSHIP_H
@@ -6,13 +7,12 @@
 enum EnemyShipState{
 	FORMATION_MOVING_LEFT, 
 	FORMATION_MOVING_RIGHT,
-	ATTACKING_ALONE,
-	ATTACKING_GROUP
+	ATTACKING_ALONE
 };
 
 class EnemyShip : public Ship {
 public:
-	EnemyShip();
+	EnemyShip(BulletPool* bulletPool);
 	virtual ~EnemyShip();
 	void handleStateAndUpdate(EnemyShipState s);
 	bool isInFormation();
@@ -20,11 +20,15 @@ public:
 	void setAlive(const bool alive);
 	void setFormationPosition(const int position[2]);
 	void changeFormationPosition(const int velocity[2]);
+	void shoot();
 protected:
 	EnemyShipState state;
 	bool isInFormation_;
 	int yPosition;
 	int formationPosition[2];
+	int ticks, lastRefresh;
+	const int bulletVelocity[2] = {0,1};
+	BulletPool* bulletPool;
 	
 	void goBackToFormation();
 };

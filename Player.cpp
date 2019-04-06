@@ -9,7 +9,7 @@ Player::Player() : Ship() {
 	strcpy(toDraw[2], "/|/\\|\\");	
 	setSprite(toDraw);
 	
-	setColor(4);
+	setColor(10);
 }
 
 void Player::moveLeft() {

@@ -1,17 +1,18 @@
 #include "Formation.h"
 
-Formation::Formation(){
+Formation::Formation(BulletPool* bulletPool){
 	// initialize ships
 	state = FormationStates::FORMATION_RIGHT;
 	int newPosition[2] = {1,1};
 	leftLimit = 5;
+	bulletPool_ = bulletPool;
 	
 	for (int i = 0; i < ySize; i++) {		
 		for (int j = 0; j < xSize; j++) {
 			if (i == 1) {
-				formation[i][j] = new MediumEnemyShip();
+				formation[i][j] = new MediumEnemyShip(bulletPool);
 			} else {
-				formation[i][j] = new EnemyShip();
+				formation[i][j] = new EnemyShip(bulletPool);
 			}
 			
 			int velocity[2] = {1, 0};
@@ -28,7 +29,7 @@ Formation::Formation(){
 	
 	// set left strong ship
 	delete formation[0][1];
-	formation[0][1] = new StrongEnemyShip((MediumEnemyShip*)formation[1][0], (MediumEnemyShip*)formation[1][2], 7);
+	formation[0][1] = new StrongEnemyShip((MediumEnemyShip*)formation[1][0], (MediumEnemyShip*)formation[1][2], 7, bulletPool);
 
 	int velocity[2] = {1, 0};
 	newPosition[0] = 19;
@@ -39,7 +40,7 @@ Formation::Formation(){
 	
 	// set right strong ship
 	delete formation[0][3];
-	formation[0][3] = new StrongEnemyShip((MediumEnemyShip*)formation[1][2], (MediumEnemyShip*)formation[1][4], 7);
+	formation[0][3] = new StrongEnemyShip((MediumEnemyShip*)formation[1][2], (MediumEnemyShip*)formation[1][4], 7, bulletPool);
 
 	newPosition[0] = 19 + 9 + 9;
 	newPosition[1] = 1;
@@ -79,6 +80,8 @@ void Formation::handleStateAndUpdate(){
 		handleFormationStates(state);
 		break;
 	}
+	
+	bulletPool_->update();
 }
 
 void Formation::handleFormationStates(FormationStates s){
@@ -102,7 +105,6 @@ void Formation::handleFormationStates(FormationStates s){
 				} 
 			} else if(formation[i][j]->isAlive()) { 
 				formation[i][j]->handleStateAndUpdate(EnemyShipState::ATTACKING_ALONE);
-				
 				// handle where to go back!
 				if (s == FORMATION_LEFT){ 
 					velocityFormationPosition[0] = -1;
@@ -124,4 +126,12 @@ void Formation::makeCommonShipAttack(const int x, const int y) {
 	formation[x][y]->handleStateAndUpdate(EnemyShipState::ATTACKING_ALONE);
 }
 	
-	
+void Formation::makeShipsShoot() { 
+	for (int i = 0; i < ySize; i++) {
+		for (int j = 0; j< xSize; j++) {
+			if(formation[i][j]->isAlive() && !formation[i][j]->isInFormation()) {
+				formation[i][j] -> shoot();
+			}
+		}
+	}
+}
