@@ -21,6 +21,22 @@ int main (int argc, char *argv[]) {
 	
 	SetConsoleWindowInfo(hConsole, TRUE, &windowSize);
 		
+	textcolor(12);
+	cout << "WE ARE GALAXIANS" << endl;
+	
+	textcolor(11);
+	cout << "Mission: Destroy aliens" << endl;
+	
+	textcolor(14);
+	cout << "Move: W A S D" << endl;
+	cout << "Shoot: J" << endl;
+	
+	textcolor(11);
+	cout << "Press ENTER" << endl;
+	
+	
+	getchar();
+	
 	GameManager * gameManager = new GameManager();
 	gameManager->gameLoop();
 	

@@ -100,5 +100,10 @@ void GameManager::gameLoop() {
 
 void GameManager::printScoreAndLife() { 
 	gotoxy(5, 59);
-	cout << "Score: " << "--- Lifes: " << player->getLife();
+	textcolor(10);
+	cout << "Score: ";
+	textcolor(15);
+	cout << "--- ";
+	textcolor(12);
+	cout << "Lifes: " << player->getLife();
 }
