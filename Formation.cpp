@@ -129,25 +129,27 @@ void Formation::makeCommonShipAttack(const int x, const int y) {
 }
 	
 void Formation::makeShipsShoot() { 
-	for (int i = 0; i < 3; i++) {
-		int xIndex = rand() % xSize;
-		int yIndex = rand() % ySize;
-		
-		if (formation[yIndex][xIndex]->isAlive() && !formation[yIndex][xIndex]->isInFormation()) { 
-			formation[yIndex][xIndex]->shoot();
-		}
+	int xIndex = rand() % xSize;
+	int yIndex = rand() % ySize;
+	
+	if (formation[yIndex][xIndex]->isAlive() && !formation[yIndex][xIndex]->isInFormation()) { 
+		formation[yIndex][xIndex]->shoot();
 	}
-//	
-//	for (int i = 0; i < ySize && keepIterating; i++) {
-//		for (int j = 0; j< xSize && keepIterating; j++) {
-//			if(formation[i][j]->isAlive() && !formation[i][j]->isInFormation()) {
-//				formation[i][j] -> shoot();
-//				keepIterating = false;				
-//			}
-//		}
-//	}
 }
 
 void Formation::updateBulletPool() {
 	bulletPool_->update();
+}
+
+void Formation::checkCollisions(Bullet* playerBullet) { 
+	int* playerBulletPosition = playerBullet->getPosition();
+	bool continueIterating = true;
+	for (int i = 0; i < ySize && continueIterating; i++) {
+		for (int j = 0; j< xSize && continueIterating; j++) {
+			if (formation[i][j]->isAlive() && formation[i][j]->intersects(playerBulletPosition)){
+				playerBullet->die();
+				formation[i][j]->die();
+			}
+		}
+	}
 }

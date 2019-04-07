@@ -21,6 +21,7 @@ public:
 	void setFormationPosition(const int position[2]);
 	void changeFormationPosition(const int velocity[2]);
 	void shoot();
+	void die();
 protected:
 	EnemyShipState state;
 	bool isInFormation_;

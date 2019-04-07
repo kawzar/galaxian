@@ -8,6 +8,7 @@ Player::Player() : Ship() {
 	strcpy(toDraw[1], " (  )");
 	strcpy(toDraw[2], "/|/\\|\\");	
 	setSprite(toDraw);
+	bullet = new Bullet();
 	
 	setColor(10);
 }
@@ -36,4 +37,25 @@ void Player::move(){
 	} else if (playerState == MOVE_LEFT){
 		moveLeft();
 	}		
+}
+
+void Player::shoot() {
+	if (!bullet->isActive()) {
+		int velocity [2] = {0, -2};
+		int* position = getPosition();
+		int newPosition[2] = {0,0};
+		newPosition[0] = position[0] + 2;
+		newPosition[1] = position[1] - 2;
+		
+		bullet->init(newPosition, velocity, sprite->getColor());
+		delete position;
+	}
+}
+
+Bullet* Player::getBullet() { 
+	return bullet;
+}
+
+void Player::updateBulletPosition() { 
+	bullet->move();
 }

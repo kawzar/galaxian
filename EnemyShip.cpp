@@ -100,8 +100,13 @@ void EnemyShip::changeFormationPosition(const int velocity[2]){
 
 void EnemyShip::shoot() {
 	int* bulletPos = getPosition();
-	bulletPos[1] = bulletPos[1] + 10;
-	bulletPos[0] = bulletPos[0] + 2;
+	int newBulletPosition[2] = {0,0};
+	newBulletPosition[1] = bulletPos[1] + 6;
+	newBulletPosition[0] = bulletPos[0] + 2;
 	
-	bulletPool->create(bulletPos, bulletVelocity, sprite->getColor());
+	bulletPool->create(newBulletPosition, bulletVelocity, sprite->getColor());
+}
+
+void EnemyShip::die() { 
+	isAlive_ = false;
 }

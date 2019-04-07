@@ -37,7 +37,7 @@ void GameManager::gameLoop() {
 	commonShipTicks = 2000;
 	
 	int shootTicks, lastShootRefresh;
-	shootTicks = 200;
+	shootTicks = 100;
 	
 	lastRefresh = clock();
 	lastStrongShipAttack = clock();
@@ -69,6 +69,7 @@ void GameManager::gameLoop() {
 			
 			formation->handleStateAndUpdate();	
 			formation->updateBulletPool();
+			player->updateBulletPosition();
 			lastRefresh = clock();
 			
 			if(kbhit())
@@ -85,6 +86,7 @@ void GameManager::gameLoop() {
 					player->move();
 					break;
 				case 'j':
+					player->shoot();
 					break;
 				}				
 			}

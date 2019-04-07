@@ -8,6 +8,7 @@ public:
 	void init(const int position[2], const int velocity[2], const int color);
 	void move();
 	void die();
+	int* getPosition();
 	
 protected:
 	bool inUse_;

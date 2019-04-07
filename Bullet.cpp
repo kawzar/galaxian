@@ -48,4 +48,6 @@ void Bullet::move() {
 	}
 }
 
-
+int* Bullet::getPosition() {
+	return position_;
+}
