@@ -21,5 +21,6 @@ private:
 	BulletPool* bulletPool;
 	
 	void setupPlayer();
+	void printScoreAndLife();
 };
 #endif

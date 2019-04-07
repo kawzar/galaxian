@@ -27,3 +27,15 @@ void BulletPool::update() {
 		}
 	}
 }
+
+void BulletPool::checkCollisions(Player* player) {
+	for (int i = 0; i < size; i++) {
+		if (pool[i]->isActive()) {
+			if (player->intersects(pool[i]->getPosition())) {
+				pool[i]->die();
+				player->damage();
+			}
+		}
+	}
+	
+}

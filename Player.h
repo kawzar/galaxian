@@ -17,8 +17,12 @@ public:
 	virtual void move();
 	Bullet* getBullet();
 	void updateBulletPosition();
+	int getLife();
+	void damage();
+	void die();
 	
 protected:
+	int life = 5;
 	PlayerStates playerState;
 	Bullet* bullet;
 	void moveLeft();

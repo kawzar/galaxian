@@ -41,7 +41,7 @@ void Bullet::move() {
 	position_[0] = position_[0] + velocity_[0];
 	position_[1] = position_[1] + velocity_[1];
 	
-	if (position_[0] >= 117 || position_[1] >= 57 || position_[0] <= 2 || position_ [1] <=2) {
+	if (position_[0] >= 117 || position_[1] >= 58 || position_[0] <= 2 || position_ [1] <=2) {
 		die();
 	} else {
 		draw();

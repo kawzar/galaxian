@@ -14,13 +14,13 @@ Player::Player() : Ship() {
 }
 
 void Player::moveLeft() {
-	velocity[0] = -1;
+	velocity[0] = -2;
 	velocity[1] = 0;
 	Ship::move();
 }
 
 void Player::moveRight() {
-	velocity[0] = 1;
+	velocity[0] = 2;
 	velocity[1] = 0;
 	Ship::move();
 }
@@ -58,4 +58,20 @@ Bullet* Player::getBullet() {
 
 void Player::updateBulletPosition() { 
 	bullet->move();
+}
+
+void Player::damage() { 
+	life--;
+	
+	if (life <=0) {
+		die();
+	}
+}
+
+void Player::die() { 
+	
+}
+
+int Player::getLife() {
+	return life;
 }

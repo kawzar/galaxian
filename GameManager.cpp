@@ -17,7 +17,7 @@ GameManager::GameManager() {
 
 void GameManager::setupPlayer() {
 	player = new Player();
-	int playerPosition[2] = {75,57};
+	int playerPosition[2] = {75,55};
 	
 	player->setPosition(playerPosition);
 }
@@ -70,6 +70,7 @@ void GameManager::gameLoop() {
 			formation->handleStateAndUpdate();	
 			formation->updateBulletPool();
 			player->updateBulletPosition();
+			formation->checkCollisions(player, player->getBullet());
 			lastRefresh = clock();
 			
 			if(kbhit())
@@ -92,7 +93,12 @@ void GameManager::gameLoop() {
 			}
 			
 			player->draw();
+			printScoreAndLife();
 		}
 	}
 };
 
+void GameManager::printScoreAndLife() { 
+	gotoxy(5, 59);
+	cout << "Score: " << "--- Lifes: " << player->getLife();
+}

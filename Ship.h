@@ -15,6 +15,7 @@ public:
 	void draw();
 	bool isAlive();
 	bool intersects(const int otherPosition[2]);
+	virtual void die() = 0;
 protected:
 	Sprite* sprite;
 	int velocity[2];	

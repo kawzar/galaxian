@@ -16,7 +16,7 @@ public:
 	void makeCommonShipAttack(const int x, const int y);
 	void makeShipsShoot();
 	void updateBulletPool();
-	void checkCollisions(Bullet* playerBullet);
+	void checkCollisions(Player* player, Bullet* playerBullet);
 protected:
 	static const int xSize = 5;
 	static const int ySize = 4;

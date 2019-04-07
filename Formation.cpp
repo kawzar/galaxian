@@ -141,7 +141,7 @@ void Formation::updateBulletPool() {
 	bulletPool_->update();
 }
 
-void Formation::checkCollisions(Bullet* playerBullet) { 
+void Formation::checkCollisions(Player* player, Bullet* playerBullet) { 
 	int* playerBulletPosition = playerBullet->getPosition();
 	bool continueIterating = true;
 	for (int i = 0; i < ySize && continueIterating; i++) {
@@ -149,7 +149,10 @@ void Formation::checkCollisions(Bullet* playerBullet) {
 			if (formation[i][j]->isAlive() && formation[i][j]->intersects(playerBulletPosition)){
 				playerBullet->die();
 				formation[i][j]->die();
+				continueIterating = false;
 			}
 		}
 	}
+	
+	bulletPool_->checkCollisions(player);
 }

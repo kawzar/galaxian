@@ -63,9 +63,9 @@ bool Ship::isAlive(){
 }
 
 bool Ship::intersects(const int otherPosition[2]){
-	int* position = getPosition();
-	bool betweenX = position[0] <= otherPosition[0] && otherPosition[0] <= position[0] + xSize;
-	bool betweeny = position[1] <= otherPosition[1] && otherPosition[1] <= position[1] + ySize;
+	const int* position = getPosition();
+	bool betweenX = position[0] <= otherPosition[0] && otherPosition[0] <= position[0] + ySize;
+	bool betweeny = position[1] <= otherPosition[1] && otherPosition[1] <= position[1] + xSize;
 	delete position;
 	
 	return betweenX && betweeny;
