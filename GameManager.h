@@ -10,6 +10,7 @@ public:
 	~GameManager();
 	
 	void gameLoop();
+	void introScreen();
 	
 private:
 	Formation* formation;
