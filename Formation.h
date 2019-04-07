@@ -17,6 +17,8 @@ public:
 	void makeShipsShoot();
 	void updateBulletPool();
 	void checkCollisions(Player* player, Bullet* playerBullet);
+	bool checkAllDead();
+	int getScore();
 protected:
 	static const int xSize = 5;
 	static const int ySize = 4;
@@ -25,6 +27,7 @@ protected:
 	EnemyShip* strongEnemyShips [2];
 	int leftLimit, rightLimit;
 	BulletPool* bulletPool_;
+	int score;
 	
 	void handleFormationStates(FormationStates s);
 };

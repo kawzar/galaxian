@@ -22,6 +22,7 @@ public:
 	void changeFormationPosition(const int velocity[2]);
 	void shoot();
 	void die();
+	int getPoints();
 protected:
 	EnemyShipState state;
 	bool isInFormation_;
@@ -30,6 +31,7 @@ protected:
 	int ticks, lastRefresh;
 	const int bulletVelocity[2] = {0,2};
 	BulletPool* bulletPool;
+	int points;
 	
 	void goBackToFormation();
 };

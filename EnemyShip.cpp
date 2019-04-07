@@ -16,6 +16,7 @@ EnemyShip::EnemyShip(BulletPool* pool){
 	
 	ticks = 250;
 	bulletPool = pool;
+	points = 100;
 }
 
 EnemyShip::~EnemyShip(){
@@ -109,4 +110,8 @@ void EnemyShip::shoot() {
 
 void EnemyShip::die() { 
 	isAlive_ = false;
+}
+
+int EnemyShip::getPoints() {
+	return points;
 }

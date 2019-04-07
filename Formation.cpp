@@ -10,6 +10,7 @@ Formation::Formation(BulletPool* bulletPool){
 	int newPosition[2] = {1,1};
 	leftLimit = 5;
 	bulletPool_ = bulletPool;
+	score = 0;
 	
 	for (int i = 0; i < ySize; i++) {		
 		for (int j = 0; j < xSize; j++) {
@@ -149,10 +150,29 @@ void Formation::checkCollisions(Player* player, Bullet* playerBullet) {
 			if (formation[i][j]->isAlive() && formation[i][j]->intersects(playerBulletPosition)){
 				playerBullet->die();
 				formation[i][j]->die();
+				score += formation[i][j]->getPoints();
 				continueIterating = false;
 			}
 		}
 	}
 	
 	bulletPool_->checkCollisions(player);
+}
+
+int Formation::getScore() {
+	return score;
+}
+
+bool Formation::checkAllDead() {
+	bool allDead = true;
+	
+	for (int i = 0; i < ySize && allDead; i++) {
+		for (int j = 0; j< xSize && allDead; j++) {
+			if (formation[i][j]->isAlive()) { 
+				allDead = false;
+			}
+		}
+	}
+	
+	return allDead;
 }

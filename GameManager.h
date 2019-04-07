@@ -19,8 +19,11 @@ private:
 	const int xMin = 1;
 	const int yMin = 1;
 	BulletPool* bulletPool;
+	bool gameLoop_;
+	int score;
 	
 	void setupPlayer();
 	void printScoreAndLife();
+	void printHighscores();
 };
 #endif

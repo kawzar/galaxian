@@ -2,6 +2,7 @@
 
 MediumEnemyShip::MediumEnemyShip(BulletPool* bulletPool):EnemyShip(bulletPool){
 	setColor(14);
+	points = 150;
 }
 
 void MediumEnemyShip::setVelocity(const int vel[2]) {

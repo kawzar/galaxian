@@ -13,6 +13,7 @@ using namespace conio;
 GameManager::GameManager() {
 	bulletPool = new BulletPool();
 	formation = new Formation(bulletPool);
+	gameLoop_ = true;
 }
 
 void GameManager::setupPlayer() {
@@ -25,7 +26,7 @@ void GameManager::setupPlayer() {
 void GameManager::gameLoop() { 
 	setupPlayer();
 	
-	/* initialize random seed: */
+	// initialize random seed:
 	srand (time(NULL));
 		
 	// loop time management
@@ -44,7 +45,7 @@ void GameManager::gameLoop() {
 	lastCommonShipAttack = clock();
 	lastShootRefresh = clock();
 		
-	while(true){
+	while(gameLoop_){
 		if(clock() > lastRefresh + ticks) { 
 			clrscr();			
 			
@@ -94,16 +95,32 @@ void GameManager::gameLoop() {
 			
 			player->draw();
 			printScoreAndLife();
+			
+			if (player->getLife() <= 0 || formation->checkAllDead()) { 
+				gameLoop_ = false;
+			}
 		}
 	}
+	
+	printHighscores();
 };
 
 void GameManager::printScoreAndLife() { 
 	gotoxy(5, 59);
 	textcolor(10);
-	cout << "Score: ";
+	cout << "Score: " << formation->getScore();
 	textcolor(15);
 	cout << "--- ";
 	textcolor(12);
 	cout << "Lifes: " << player->getLife();
+}
+
+void GameManager::printHighscores() {
+	clrscr();
+	gotoxy(5, 2);
+	textcolor(10);
+	
+	cout << "GAME OVER!" << endl;
+	cout << "Score is: "<< formation->getScore();
+	getchar();
 }

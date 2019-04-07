@@ -4,6 +4,7 @@ StrongEnemyShip::StrongEnemyShip(MediumEnemyShip* l, MediumEnemyShip* r, const i
 	left = l;
 	right = r;
 	yPosition = yPos;
+	points = 200;
 	setColor(13);
 }
 

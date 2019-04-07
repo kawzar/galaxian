@@ -22,7 +22,7 @@ public:
 	void die();
 	
 protected:
-	int life = 5;
+	int life = 3;
 	PlayerStates playerState;
 	Bullet* bullet;
 	void moveLeft();
