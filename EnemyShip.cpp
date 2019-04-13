@@ -45,7 +45,7 @@ void EnemyShip::handleStateAndUpdate(EnemyShipState s){
 		} else { 
 			int* position = getPosition();
 			
-			if (isAlive_ && (position[0] >= 117 || position[1] >= 50)) {
+			if (isAlive_ && (position[0] >= windowX || position[1] >= windowY - 2)) {
 				goBackToFormation();
 			}
 			
