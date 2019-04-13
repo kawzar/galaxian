@@ -6,8 +6,10 @@
 using namespace std;
 using namespace conio;
 
-Bullet::Bullet(){ 
+Bullet::Bullet(const int windowSizeX, const int windowSizeY){ 
 	inUse_ = false;
+	windowX = windowSizeX;
+	windowY = windowSizeY;
 }
 
 bool Bullet::isActive() {
@@ -41,7 +43,7 @@ void Bullet::move() {
 	position_[0] = position_[0] + velocity_[0];
 	position_[1] = position_[1] + velocity_[1];
 	
-	if (position_[0] >= 117 || position_[1] >= 58 || position_[0] <= 2 || position_ [1] <=2) {
+	if (position_[0] >= windowX || position_[1] >= windowY || position_[0] <= 2 || position_ [1] <=2) {
 		die();
 	} else {
 		draw();

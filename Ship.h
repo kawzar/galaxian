@@ -4,7 +4,7 @@
 
 class Ship {
 public:
-	Ship();
+	Ship(const int windowSizeX, const int windowSizeY);
 	~Ship();
 	virtual void move();
 	void setVelocity(const int vel[2]);
@@ -25,5 +25,6 @@ protected:
 	void setSprite(const char toDraw[4][8]);
 	void setColor(const int color);
 	bool isAlive_;
+	int windowX, windowY;
 };
 #endif

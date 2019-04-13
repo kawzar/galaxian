@@ -12,7 +12,7 @@ enum EnemyShipState{
 
 class EnemyShip : public Ship {
 public:
-	EnemyShip(BulletPool* bulletPool);
+	EnemyShip(BulletPool* bulletPool, const int windowSizeX, const int windowSizeY);
 	virtual ~EnemyShip();
 	void handleStateAndUpdate(EnemyShipState s);
 	bool isInFormation();

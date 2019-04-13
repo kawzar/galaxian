@@ -6,7 +6,7 @@
 
 class BulletPool{
 public:
-	BulletPool();
+	BulletPool(const int windowSizeX, const int windowSizeY);
 	~BulletPool();
 	void create(const int position[2], const int velocity[2], const int color);
 	void update();

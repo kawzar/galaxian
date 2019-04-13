@@ -1,8 +1,8 @@
 #include "BulletPool.h"
 
-BulletPool::BulletPool(){
+BulletPool::BulletPool(const int windowSizeX, const int windowSizeY){
 	for (int i = 0; i< size; i++) {
-		pool[i] = new Bullet();
+		pool[i] = new Bullet(windowSizeX, windowSizeY);
 	}
 }
 

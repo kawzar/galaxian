@@ -8,9 +8,11 @@
 using namespace std;
 using namespace conio;
 
-Ship::Ship() {
-	this->sprite = new Sprite();
+Ship::Ship(const int windowSizeX, const int windowSizeY) {
+	this->sprite = new Sprite(windowSizeX, windowSizeY);
 	isAlive_ = true;
+	windowX = windowSizeX;
+	windowY = windowSizeY;
 }
 Ship::~Ship() {
 	delete sprite;

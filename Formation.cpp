@@ -4,20 +4,22 @@
 
 using namespace std;
 
-Formation::Formation(BulletPool* bulletPool){
+Formation::Formation(BulletPool* bulletPool, const int windowSizeX, const int windowSizeY){
 	// initialize ships
 	state = FormationStates::FORMATION_RIGHT;
 	int newPosition[2] = {1,1};
 	leftLimit = 5;
 	bulletPool_ = bulletPool;
 	score = 0;
+	windowX = windowSizeX;
+	windowY = windowSizeY;
 	
 	for (int i = 0; i < ySize; i++) {		
 		for (int j = 0; j < xSize; j++) {
 			if (i == 1) {
-				formation[i][j] = new MediumEnemyShip(bulletPool);
+				formation[i][j] = new MediumEnemyShip(bulletPool, windowSizeX, windowSizeY);
 			} else {
-				formation[i][j] = new EnemyShip(bulletPool);
+				formation[i][j] = new EnemyShip(bulletPool, windowSizeX, windowSizeY);
 			}
 			
 			int velocity[2] = {1, 0};
@@ -34,7 +36,7 @@ Formation::Formation(BulletPool* bulletPool){
 	
 	// set left strong ship
 	delete formation[0][1];
-	formation[0][1] = new StrongEnemyShip((MediumEnemyShip*)formation[1][0], (MediumEnemyShip*)formation[1][2], 7, bulletPool);
+	formation[0][1] = new StrongEnemyShip((MediumEnemyShip*)formation[1][0], (MediumEnemyShip*)formation[1][2], 7, bulletPool, windowSizeX, windowSizeY);
 
 	int velocity[2] = {1, 0};
 	newPosition[0] = 19;
@@ -45,7 +47,7 @@ Formation::Formation(BulletPool* bulletPool){
 	
 	// set right strong ship
 	delete formation[0][3];
-	formation[0][3] = new StrongEnemyShip((MediumEnemyShip*)formation[1][2], (MediumEnemyShip*)formation[1][4], 7, bulletPool);
+	formation[0][3] = new StrongEnemyShip((MediumEnemyShip*)formation[1][2], (MediumEnemyShip*)formation[1][4], 7, bulletPool, windowSizeX, windowSizeY);
 
 	newPosition[0] = 19 + 9 + 9;
 	newPosition[1] = 1;
@@ -75,7 +77,7 @@ void Formation::handleStateAndUpdate(){
 	case FORMATION_RIGHT:
 		leftLimit++;
 		rightLimit++;
-		if (rightLimit >= 119) {
+		if (rightLimit >= windowX) {
 			handleFormationStates(FormationStates::FORMATION_LEFT);
 		} else {
 			handleFormationStates(state);

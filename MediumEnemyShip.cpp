@@ -1,6 +1,6 @@
 #include "MediumEnemyShip.h"
 
-MediumEnemyShip::MediumEnemyShip(BulletPool* bulletPool):EnemyShip(bulletPool){
+MediumEnemyShip::MediumEnemyShip(BulletPool* bulletPool, const int windowSizeX, const int windowSizeY):EnemyShip(bulletPool, windowSizeX, windowSizeY){
 	setColor(14);
 	points = 150;
 }

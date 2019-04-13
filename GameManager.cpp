@@ -10,15 +10,17 @@
 using namespace std;
 using namespace conio;
 
-GameManager::GameManager() {
-	bulletPool = new BulletPool();
-	formation = new Formation(bulletPool);
+GameManager::GameManager(const int windowSizeX, const int windowSizeY) {
+	bulletPool = new BulletPool(windowSizeX, windowSizeY);
+	formation = new Formation(bulletPool, windowSizeX, windowSizeY);
 	gameLoop_ = true;
+	windowX = windowSizeX;
+	windowY = windowSizeY;
 }
 
 void GameManager::setupPlayer() {
-	player = new Player();
-	int playerPosition[2] = {75,55};
+	player = new Player(windowX, windowY);
+	int playerPosition[2] = {windowX/2,windowY - 4};
 	
 	player->setPosition(playerPosition);
 }
@@ -106,7 +108,7 @@ void GameManager::gameLoop() {
 };
 
 void GameManager::printScoreAndLife() { 
-	gotoxy(5, 59);
+	gotoxy(5, windowY-1);
 	textcolor(10);
 	cout << "Score: " << formation->getScore();
 	textcolor(15);

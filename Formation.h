@@ -10,7 +10,7 @@ enum FormationStates{
 
 class Formation {
 public:
-	Formation(BulletPool* bulletPool);
+	Formation(BulletPool* bulletPool, const int windowSizeX, const int windowSizeY);
 	void handleStateAndUpdate();
 	void makeStrongShipsAttack(const int index);
 	void makeCommonShipAttack(const int x, const int y);
@@ -28,6 +28,7 @@ protected:
 	int leftLimit, rightLimit;
 	BulletPool* bulletPool_;
 	int score;
+	int windowX, windowY;
 	
 	void handleFormationStates(FormationStates s);
 };

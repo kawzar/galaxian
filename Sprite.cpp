@@ -7,8 +7,9 @@
 using namespace std;
 using namespace conio;
 
-Sprite::Sprite() {
-	
+Sprite::Sprite(const int windowSizeX, const int windowSizeY) {
+	windowX = windowSizeX;
+	windowY = windowSizeY;
 }
 
 Sprite::~Sprite() {

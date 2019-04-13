@@ -3,7 +3,7 @@
 
 class Bullet{
 public:
-	Bullet();
+	Bullet(const int windowSizeX, const int windowSizeY);
 	bool isActive();
 	void init(const int position[2], const int velocity[2], const int color);
 	void move();
@@ -16,6 +16,7 @@ protected:
 	int velocity_[2];
 	const char* sprite = "*";
 	int color_;
+	int windowX, windowY;
 	
 	void draw();
 };

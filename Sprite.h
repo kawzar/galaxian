@@ -4,7 +4,7 @@ class Sprite{
 public:
 	const int spacingX = 9;
 	const int spacingY = 3;
-	Sprite();
+	Sprite(const int windowSizeX, const int windowSizeY);
 	~Sprite();
 	void setSprite(const char toDraw[4][8]);
 	void setColor(const int color);
@@ -21,5 +21,6 @@ private:
 	char sprite [4][8];
 	int position[2];
 	int color;
+	int windowX, windowY;
 };
 #endif

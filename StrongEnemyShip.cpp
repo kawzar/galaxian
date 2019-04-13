@@ -1,6 +1,6 @@
 #include "StrongEnemyShip.h"
 
-StrongEnemyShip::StrongEnemyShip(MediumEnemyShip* l, MediumEnemyShip* r, const int yPos, BulletPool* bulletPool) : EnemyShip(bulletPool){
+StrongEnemyShip::StrongEnemyShip(MediumEnemyShip* l, MediumEnemyShip* r, const int yPos, BulletPool* bulletPool, const int windowSizeX, const int windowSizeY) : EnemyShip(bulletPool, windowSizeX, windowSizeY){
 	left = l;
 	right = r;
 	yPosition = yPos;

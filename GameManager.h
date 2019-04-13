@@ -6,7 +6,7 @@
 
 class GameManager {
 public:
-	GameManager();
+	GameManager(const int windowSizeX, const int windowSizeY);
 	~GameManager();
 	
 	void gameLoop();
@@ -22,6 +22,7 @@ private:
 	BulletPool* bulletPool;
 	bool gameLoop_;
 	int score;
+	int windowX, windowY;
 	
 	void setupPlayer();
 	void printScoreAndLife();

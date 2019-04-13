@@ -3,7 +3,7 @@
 #include <time.h>
 using namespace std;
 
-EnemyShip::EnemyShip(BulletPool* pool){
+EnemyShip::EnemyShip(BulletPool* pool, const int windowSizeX, const int windowSizeY) : Ship(windowSizeX, windowSizeY){
 	char toDraw[3][8];
 	strcpy(toDraw[0], "\\|\\/|/");
 	strcpy(toDraw[1], " (  )");

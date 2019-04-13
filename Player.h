@@ -11,7 +11,7 @@ enum PlayerStates {
 
 class Player : public Ship {
 public:
-	Player();
+	Player(const int windowSizeX, const int windowSizeY);
 	void changeState(PlayerStates state);
 	void shoot();
 	virtual void move();

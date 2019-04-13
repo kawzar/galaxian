@@ -2,13 +2,13 @@
 #include <cstring>
 using namespace std;
 
-Player::Player() : Ship() {
+Player::Player(const int windowSizeX, const int windowSizeY) : Ship(windowSizeX, windowSizeY) {
 	char toDraw [3][8];
 	strcpy(toDraw[0], "  /\\");
 	strcpy(toDraw[1], " (  )");
 	strcpy(toDraw[2], "/|/\\|\\");	
 	setSprite(toDraw);
-	bullet = new Bullet();
+	bullet = new Bullet(windowSizeX, windowSizeY);
 	
 	setColor(10);
 }
@@ -32,9 +32,9 @@ void Player::changeState(PlayerStates state){
 }
 
 void Player::move(){
-	if (playerState == MOVE_RIGHT){
+	if (playerState == MOVE_RIGHT && getPosition()[0] + 8 <= windowX){
 		moveRight();
-	} else if (playerState == MOVE_LEFT){
+	} else if (playerState == MOVE_LEFT && getPosition()[0] - 4 >= 1){
 		moveLeft();
 	}		
 }
