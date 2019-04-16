@@ -184,7 +184,10 @@ void GameManager::introScreen() {
 	cout << "Medium alien ship: " << 150 << " points" << endl;
 	
 	textcolor(13);
-	cout << "Strong alien ship: " << 200 << " points" << endl << endl;
+	cout << "Strong alien ship: " << 200 << " points" << endl;
+	
+	textcolor(12);
+	cout << "You get extra points for every life left!" << endl << endl;
 	
 	textcolor(11);
 	cout << "Press ENTER" << endl;	

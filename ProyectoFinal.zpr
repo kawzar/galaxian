@@ -31,9 +31,7 @@ cursor=11:51
 open=true
 [source]
 path=GameManager.cpp
-cursor=122:9
-breakpoint=131
-breakpoint_annotation=
+cursor=184:1
 open=true
 [source]
 path=Player.cpp
