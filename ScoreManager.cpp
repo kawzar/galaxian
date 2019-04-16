@@ -7,6 +7,9 @@ using namespace std;
 ScoreManager::ScoreManager(){
 }
 
+ScoreManager::~ScoreManager(){	
+}
+
 void ScoreManager::getHighScores(Score* highScores[5]){
 	ifstream input_file("scores.data", ios::binary);
 	

@@ -63,6 +63,15 @@ Formation::Formation(BulletPool* bulletPool, const int windowSizeX, const int wi
 	strongEnemyShips[1] = formation[0][3];
 }
 
+
+Formation::~Formation() {
+	for (int i = 0; i < ySize; i++) {		
+		for (int j = 0; j < xSize; j++) {
+			delete formation[i][j];
+		}
+	}
+}
+
 void Formation::handleStateAndUpdate(){	
 	switch (state){
 	case FORMATION_LEFT:

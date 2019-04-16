@@ -19,6 +19,13 @@ GameManager::GameManager(const int windowSizeX, const int windowSizeY) {
 	scoreManager = new ScoreManager();
 }
 
+GameManager::~GameManager() {
+	delete bulletPool;
+	delete formation;
+	delete scoreManager;
+	delete player;
+}
+
 void GameManager::setupPlayer() {
 	player = new Player(windowX, windowY);
 	int playerPosition[2] = {windowX/2,windowY - 4};

@@ -13,6 +13,10 @@ Player::Player(const int windowSizeX, const int windowSizeY) : Ship(windowSizeX,
 	setColor(10);
 }
 
+Player::~Player(){
+	delete sprite;
+}
+
 void Player::moveLeft() {
 	velocity[0] = -2;
 	velocity[1] = 0;

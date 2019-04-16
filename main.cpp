@@ -26,6 +26,8 @@ int main (int argc, char *argv[]) {
 	gameManager->introScreen();
 	gameManager->gameLoop();
 	
+	delete gameManager;
+	
 	cout << endl;
 	return 0;
 }
