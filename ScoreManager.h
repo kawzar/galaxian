@@ -15,6 +15,7 @@ public:
 	void saveHighScores(Score* scores[5]);
 	void addScore(Score* scores[5], Score* newScore, Score* result[5]);
 	void getDummyScore(Score* highScores[5]);
+	void swap(Score *xp, Score *yp) ;
 };
 
 #endif

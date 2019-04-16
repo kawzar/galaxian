@@ -120,11 +120,11 @@ void GameManager::printScoreAndLife() {
 
 void GameManager::printHighscores() {
 	clrscr();
-	gotoxy(5, 2);
+	gotoxy(2, 2);
 	textcolor(10);
 	
 	cout << "GAME OVER!" << endl;
-	cout << "Score is: "<< formation->getScore();
+	cout << "Score is: "<< formation->getScore() << endl;
 	
 	Score* highScores[5];
 	scoreManager->getHighScores(highScores);
@@ -138,8 +138,9 @@ void GameManager::printHighscores() {
 	char name[30];
 		
 	if (isHighScore) { 
-		cout << "You make it to the highscores! Please Enter your name:" << endl;
+		cout << "You make it to the highscores! Please Enter your name:" << endl << endl;
 		gets(name);
+		cout << endl;
 		Score* newScore = new Score();
 		strcpy(newScore->name, name);
 		newScore->score = formation->getScore();
@@ -151,8 +152,10 @@ void GameManager::printHighscores() {
 	
 	for (int i = 0; i < 5; i++) {
 		textcolor(i +2);
+		cout << "Score #" << i + 1 << endl;
 		puts(highScores[i]->name);
-		//cout << "......" << highScores[i].score << endl;
+		cout << highScores[i]->score << endl;
+		cout << endl;
 		
 	}
 	
