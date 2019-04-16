@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "Formation.h"
+#include "ScoreManager.h"
 
 #ifndef GAMEMANAGER_H	
 #define	GAMEMANAGER_H	
@@ -21,11 +22,12 @@ private:
 	const int yMin = 1;
 	BulletPool* bulletPool;
 	bool gameLoop_;
-	int score;
 	int windowX, windowY;
+	ScoreManager* scoreManager;
 	
 	void setupPlayer();
 	void printScoreAndLife();
 	void printHighscores();
+	void saveScore(const char* name, const int score);
 };
 #endif

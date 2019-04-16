@@ -16,6 +16,7 @@ GameManager::GameManager(const int windowSizeX, const int windowSizeY) {
 	gameLoop_ = true;
 	windowX = windowSizeX;
 	windowY = windowSizeY;
+	scoreManager = new ScoreManager();
 }
 
 void GameManager::setupPlayer() {
@@ -124,6 +125,37 @@ void GameManager::printHighscores() {
 	
 	cout << "GAME OVER!" << endl;
 	cout << "Score is: "<< formation->getScore();
+	
+	Score* highScores[5];
+	scoreManager->getHighScores(highScores);
+	bool isHighScore = false;
+	for(int i = 0; i < 5 && !isHighScore; i++) { 
+		if (highScores[i]->score <= formation->getScore()) { 
+			isHighScore = true;
+		}
+	}
+	
+	char name[30];
+		
+	if (isHighScore) { 
+		cout << "You make it to the highscores! Please Enter your name:" << endl;
+		gets(name);
+		Score* newScore = new Score();
+		strcpy(newScore->name, name);
+		newScore->score = formation->getScore();
+		
+		scoreManager->addScore(highScores, newScore, highScores);
+	} 
+	
+	scoreManager->getHighScores(highScores);
+	
+	for (int i = 0; i < 5; i++) {
+		textcolor(i +2);
+		puts(highScores[i]->name);
+		//cout << "......" << highScores[i].score << endl;
+		
+	}
+	
 	getchar();
 }
 
