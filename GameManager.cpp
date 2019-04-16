@@ -113,7 +113,7 @@ void GameManager::printScoreAndLife() {
 	textcolor(10);
 	cout << "Score: " << formation->getScore();
 	textcolor(15);
-	cout << "--- ";
+	cout << " --- ";
 	textcolor(12);
 	cout << "Lifes: " << player->getLife();
 }
@@ -122,15 +122,16 @@ void GameManager::printHighscores() {
 	clrscr();
 	gotoxy(2, 2);
 	textcolor(10);
+	int playerScore = formation->getScore() + player->getLife() * 100;
 	
 	cout << "GAME OVER!" << endl;
-	cout << "Score is: "<< formation->getScore() << endl;
+	cout << "Score is: "<< playerScore << endl;
 	
 	Score* highScores[5];
 	scoreManager->getHighScores(highScores);
 	bool isHighScore = false;
 	for(int i = 0; i < 5 && !isHighScore; i++) { 
-		if (highScores[i]->score <= formation->getScore()) { 
+		if (highScores[i]->score <= playerScore) { 
 			isHighScore = true;
 		}
 	}
@@ -143,7 +144,7 @@ void GameManager::printHighscores() {
 		cout << endl;
 		Score* newScore = new Score();
 		strcpy(newScore->name, name);
-		newScore->score = formation->getScore();
+		newScore->score = playerScore;
 		
 		scoreManager->addScore(highScores, newScore, highScores);
 	} 
@@ -151,13 +152,16 @@ void GameManager::printHighscores() {
 	scoreManager->getHighScores(highScores);
 	
 	for (int i = 0; i < 5; i++) {
-		textcolor(i +2);
+		textcolor(i +3);
 		cout << "Score #" << i + 1 << endl;
 		puts(highScores[i]->name);
 		cout << highScores[i]->score << endl;
 		cout << endl;
 		
 	}
+	
+	textcolor(8);
+	cout << "Press ENTER to exit game" << endl;
 	
 	getchar();
 }
@@ -171,11 +175,19 @@ void GameManager::introScreen() {
 	
 	textcolor(14);
 	cout << "Move: W A S D" << endl;
-	cout << "Shoot: J" << endl;
+	cout << "Shoot: J" << endl << endl;
+	
+	textcolor(9);
+	cout << "Alien ship: " << 100 << " points"<<endl;
+	
+	textcolor(14);
+	cout << "Medium alien ship: " << 150 << " points" << endl;
+	
+	textcolor(13);
+	cout << "Strong alien ship: " << 200 << " points" << endl << endl;
 	
 	textcolor(11);
-	cout << "Press ENTER" << endl;
-	
+	cout << "Press ENTER" << endl;	
 	
 	getchar();
 }
